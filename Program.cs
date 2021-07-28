@@ -52,4 +52,33 @@ class Solution
 		textWriter.Flush();
 		textWriter.Close();
 	}
+	// https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
+	public void Rotate()
+        {
+            int n = 3;
+            int[] a = { 3, 8, 9, 7, 6 };
+            int[] temp = new int[a.Length];
+            
+
+            for (int j = 0; j < a.Length; j++)
+            {
+                int k = j;
+                for (int i = 0; i < n; i++)
+                {
+                    k++;
+                    if (k >= a.Length)
+                    {
+                        k = 0;
+                    }
+                }
+                temp[k] = a[j];
+            }        
+
+            Console.Write("[");
+            foreach (var item in temp)
+            {
+                Console.Write(item.ToString() + " ");
+            }
+            Console.Write("]");
+        }
 }
