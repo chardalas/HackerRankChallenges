@@ -57,28 +57,34 @@ class Solution
 		textWriter.Close();
 	}
 
-
-	public static int MySolution(int[] A)
+	// https://app.codility.com/programmers/lessons/2-arrays/cyclic_rotation/
+	public void Rotate()
 	{
-		Array.Sort(A);
-		int k = 1;
-		for (int i = 0; i < A.Length; i++)
+		int n = 3;
+		int[] a = { 3, 8, 9, 7, 6 };
+		int[] temp = new int[a.Length];
+
+
+		for (int j = 0; j < a.Length; j++)
 		{
-			if (A[i] > 0)
+			int k = j;
+			for (int i = 0; i < n; i++)
 			{
-				if (A[i] > k)
+				k++;
+				if (k >= a.Length)
 				{
-					break;
-				}
-				else if (A[i] == k)
-				{
-					k++;
-					continue;
+					k = 0;
 				}
 			}
+			temp[k] = a[j];
 		}
 
-		return k;
+		Console.Write("[");
+		foreach (var item in temp)
+		{
+			Console.Write(item.ToString() + " ");
+		}
+		Console.Write("]");
 	}
 
 	public static int UniqueElem(int[] A)
